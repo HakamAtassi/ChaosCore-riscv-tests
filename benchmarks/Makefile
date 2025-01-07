@@ -33,7 +33,8 @@ bmarks = \
 	memcpy \
 	dhrystone \
 	spmv \
-	multiply
+	multiply \
+	multicore_template \
 
 #mt-matmul 
 #pmp \
