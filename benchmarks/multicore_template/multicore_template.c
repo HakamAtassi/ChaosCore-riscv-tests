@@ -19,17 +19,13 @@
 // Input/Reference Data
 
 void thread_entry(int cid, int nc) {
+
     if (cid == 0) {
-        printf("Core 0 running\n");
-        while(1);
-    } else if(cid==1) {
-        printf("Core 1 running\n", cid);
-        while(1);
+        while (1); 
+    } else if (cid == 1) {
+        while (1); 
     }
-    return;
+
 }
 
 
-int main(int argc, char** argv) {
-    return 0;
-}
