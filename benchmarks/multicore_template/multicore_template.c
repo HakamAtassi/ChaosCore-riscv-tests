@@ -18,7 +18,6 @@
 //--------------------------------------------------------------------------
 // Input/Reference Data
 
-
 void thread_entry(int cid, int nc) {
     if (cid == 0) {
         printf("Core 0 running\n");
