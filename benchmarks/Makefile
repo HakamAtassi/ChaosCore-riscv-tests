@@ -34,6 +34,8 @@ bmarks = \
 	dhrystone \
 	spmv \
 	multiply \
+	gcd \
+	render \
 	multicore_template \
 
 #mt-matmul 
