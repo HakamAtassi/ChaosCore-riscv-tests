@@ -9,19 +9,6 @@
 
 #include <math.h>
 
-#define PPM_STATUS 0x4000
-#define PPM_OPERATION 0x4004
-#define PPM_ADDRESS 0x4008
-#define PPM_DATA 0x400C
-#define PPM_DUMP 0x4010
-#define PPM_DOORBELL 0x4014
-
-#define FRAME_WIDTH 320
-#define FRAME_HEIGHT 240
-
-#define CHAR_WIDTH 8
-#define CHAR_HEIGHT 8
-
 #define PI 3.14159265358979323846
 
 // Frame buffer (RGB format, 32-bit per pixel)
@@ -30,6 +17,7 @@ unsigned int frame[FRAME_HEIGHT * FRAME_WIDTH];
 int main(int argc, char *argv[])
 {
 
+  write_filename("rocketchip_sinwave.ppm");
 
   reg_write32(PPM_OPERATION, 1);
   for (int x = 0; x < FRAME_WIDTH; x++)
@@ -39,7 +27,7 @@ int main(int argc, char *argv[])
 
     float y = sin(scale_x);
 
-    int y_cord = (int)(y * 100) + FRAME_HEIGHT / 2;
+    int y_cord = (int)(y * FRAME_HEIGHT/2) + FRAME_HEIGHT / 2;
 
     int pixel_address = y_cord * FRAME_WIDTH + x;
 

@@ -3,6 +3,8 @@
 #include <math.h>
 #include <stdint.h>
 
+#include "PPM.h"
+
 #include "mmio.h"
 #include "font.h"
 
@@ -13,8 +15,6 @@
 #define PPM_DUMP 0x4010
 #define PPM_DOORBELL 0x4014
 
-#define FRAME_WIDTH 320
-#define FRAME_HEIGHT 240
 
 #define CHAR_WIDTH 8
 #define CHAR_HEIGHT 8
@@ -26,12 +26,14 @@ int main(int argc, char *argv[])
 {
   printf("running fractcal\n");
 
+  write_filename("rocketchip_mandelbrot.ppm");
+
   /* The window in the plane. */
   const float xmin = -2; 
   const float xmax = 1.0; 
   const float ymin = -1.5;
   const float ymax = 1.5; 
-  const uint16_t maxiter = 3;
+  const uint16_t maxiter = 5;
   const int xres = 100;
   const int yres = 100;
 
@@ -79,17 +81,20 @@ int main(int argc, char *argv[])
         char blue = (unsigned char)(8.5 * (1 - t) * (1 - t) * (1 - t) * t * 255); // Blue
 
         color = (red << 16) | (green << 8) | (blue);
+
+        write_pixel(j*FRAME_WIDTH+i, color);
       }
 
       //printf("Setting pixel (%0d)=%0x\n", j*FRAME_WIDTH+i, color);
-      set_pixel(frame, j * FRAME_WIDTH + i, color);
+      //set_pixel(frame, j * FRAME_WIDTH + i, color);
     }
     printf("row %0d\n", j);
   }
 
   printf("Done generating frame\n");
 
-  dump_frame(frame);
+  //dump_frame(frame);
+  generate_ppm();
 
   return 0;
 }

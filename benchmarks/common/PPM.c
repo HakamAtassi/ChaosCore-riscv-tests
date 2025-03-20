@@ -55,3 +55,20 @@ void dump_frame(uint32_t *frame) // moves frame buffer from core to device
     reg_write32(PPM_DUMP, 1);   // request dump to ppm file
     generate_ppm(); // request memory to .ppm dump
 }
+
+void write_filename(char* filename) // sets filename register
+{
+
+    int i=0;
+    reg_write32(PPM_OPERATION, 2);
+
+    while(filename[i]!='\0'){
+
+        reg_write32(PPM_DATA, filename[i]);
+        reg_write32(PPM_ADDRESS, i);
+        reg_write32(PPM_DOORBELL, 1);
+        i+=1;
+    }
+    generate_ppm();
+}
+

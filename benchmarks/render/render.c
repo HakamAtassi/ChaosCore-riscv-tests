@@ -17,19 +17,20 @@
 
 
 uint32_t frame[FRAME_HEIGHT * FRAME_WIDTH];
+
 int main(void)
 {
 
+    //printf("Dumping frame\n");
     // Frame buffer (RGB format, 32-bit per pixel)
 
     set_char(frame, 10, 10, font8x8_basic['H']);
-    set_char(frame, 20, 10, font8x8_basic['E']);
-    set_char(frame, 30, 10, font8x8_basic['L']);
-    set_char(frame, 40, 10, font8x8_basic['L']);
-    set_char(frame, 50, 10, font8x8_basic['O']);
-    set_char(frame, 60, 10, font8x8_basic['!']);
+    //set_char(frame, 20, 10, font8x8_basic['E']);
+    //set_char(frame, 30, 10, font8x8_basic['L']);
+    //set_char(frame, 40, 10, font8x8_basic['L']);
+    //set_char(frame, 50, 10, font8x8_basic['O']);
+    //set_char(frame, 60, 10, font8x8_basic['!']);
 
-    printf("Dumping frame\n");
     dump_frame(frame);
 
     //update_frame();

@@ -10,8 +10,8 @@
 #define PPM_DUMP 0x4010
 #define PPM_DOORBELL 0x4014
 
-#define FRAME_WIDTH 320
-#define FRAME_HEIGHT 240
+#define FRAME_WIDTH 100
+#define FRAME_HEIGHT 100
 
 #define CHAR_WIDTH 8
 #define CHAR_HEIGHT 8
@@ -22,6 +22,7 @@ void write_pixel(uint32_t address, uint32_t data); // write to ppm module
 void write_frame(uint32_t* frame);
 void generate_ppm();
 void dump_frame(uint32_t *frame);
+void write_filename(char* filename);
 
 
 #endif
