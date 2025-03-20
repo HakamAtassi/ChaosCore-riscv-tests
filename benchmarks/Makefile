@@ -36,6 +36,8 @@ bmarks = \
 	multiply \
 	gcd \
 	render \
+	mandelbrot \
+	sin \
 	multicore_template \
 
 #mt-matmul 
