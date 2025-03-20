@@ -1,6 +1,3 @@
 [submodule "env"]
 	path = env
 	url = https://github.com/HakamAtassi/ChaosCore-riscv-test-env.git
-[submodule "benchmarks/ChaosCore-fractals-in-c"]
-	path = benchmarks/ChaosCore-fractals-in-c
-	url = https://github.com/HakamAtassi/ChaosCore-fractals-in-c.git
