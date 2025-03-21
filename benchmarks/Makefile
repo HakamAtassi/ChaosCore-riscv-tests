@@ -38,6 +38,7 @@ bmarks = \
 	render \
 	mandelbrot \
 	sin \
+	FPGA_hello_world \
 	multicore_template \
 
 #mt-matmul 
